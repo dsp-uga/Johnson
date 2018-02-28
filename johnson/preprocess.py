@@ -17,13 +17,17 @@ def load(setName):
     of the dataset. For instance, 00.00, 00.01, 02.00, etc.
     Return a matrix instantiating all images
     '''
-    # get the full name of the path; (Maybe not hard code it?)
+    # get the full name of the path; Here I coded to be the path on a AI server.
     dirname = '/media/data2TB/jeremyshi/neurofinder.{}.test/images/'.format(setName)
     # load images using opencv
     images = [cv2.imread(file) for file in glob('{}*.tiff'.format(dirname))]
-    # change the images to grayscale
-    images = [cv2.cvtColor(image, cv2.COLOR_BGR2GRAY) for image in images]  # convert to greyscale
+    return images
 
+def grayScale(images):
+    '''
+    change the images to grayscale
+    '''
+    images = [cv2.cvtColor(image, cv2.COLOR_BGR2GRAY) for image in images]  # convert to greyscale
     return images
     
 def medianFilter(img):
