@@ -1,0 +1,1 @@
+from cnmf.main import CNMF

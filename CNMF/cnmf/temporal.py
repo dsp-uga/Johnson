@@ -5,8 +5,8 @@
 from scipy.sparse import spdiags,coo_matrix#,csgraph
 import scipy
 import numpy as np
-from deconvolution import constrained_foopsi
-from utilities import update_order
+from cnmf.deconvolution import constrained_foopsi
+from cnmf.utilities import update_order
 
 #%%
 def constrained_foopsi_parallel(arg_in):

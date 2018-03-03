@@ -7,9 +7,9 @@ Created on Tue Sep  8 16:23:57 2015
 from scipy.sparse import coo_matrix,csgraph,csc_matrix, lil_matrix
 import scipy
 import numpy as np
-from spatial import update_spatial_components
-from temporal import update_temporal_components
-from deconvolution import constrained_foopsi
+from cnmf.spatial import update_spatial_components
+from cnmf.temporal import update_temporal_components
+from cnmf.deconvolution import constrained_foopsi
 
 #%%
 def merge_components(Y,A,b,C,f,S,sn_pix,temporal_params,spatial_params,thr=0.85,fast_merge=True,mx=1000,bl=None,c1=None,sn=None,g=None):

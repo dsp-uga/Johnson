@@ -1,10 +1,10 @@
 import numpy as np
-from utilities import local_correlations, CNMFSetParms, order_components
-from pre_processing import preprocess_data
-from initialization import initialize_components
-from merging import merge_components
-from spatial import update_spatial_components
-from temporal import update_temporal_components
+from cnmf.utilities import local_correlations, CNMFSetParms, order_components
+from cnmf.pre_processing import preprocess_data
+from cnmf.initialization import initialize_components
+from cnmf.merging import merge_components
+from cnmf.spatial import update_spatial_components
+from cnmf.temporal import update_temporal_components
 
 class CNMF(object):
   """
