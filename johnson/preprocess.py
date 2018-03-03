@@ -36,7 +36,9 @@ def load(setName, base):
 
 def grayScale(images):
     '''
-    change the images to grayscale
+    Change the images to grayscale
+    Input: an array of image arrays.
+    Output: an array of image arrays in gray scale.
     '''
     images = [cv2.cvtColor(image, cv2.COLOR_BGR2GRAY) for image in images]  # convert to greyscale
     return images
@@ -44,8 +46,9 @@ def grayScale(images):
 def medianFilter(images):
     '''
     Add a median filter into a image using _median filters_ and _morphology_ in skimage.
-    Input: an image array.
-    Output: an image array after the median filter.
+    There's a helper function for it because we need to apply the filter on every img.
+    Input: an array of image arrays.
+    Output: an array of image arrays after the median filter.
     The method is adopted from:
     https://github.com/eds-uga/cbio4835-sp17/blob/master/lectures/Lecture23.ipynb
     '''
@@ -55,22 +58,13 @@ def medianFilter(images):
 def _median(img):
     '''
     helper function for medianFilter method.
+    Input: an image.
+    Output: an image after the median filter.
     '''
     # i is the result of only keeping the values higher than the mean in the image
-    i = img > np.mean(img)
+    i = img > np.median(img)
     # Morphology has options on different shapes and values. In practice, square(3) or square(4) perform well.
     bin_median = filters.median(i, morphology.square(3))
     return bin_median
 
 if __name__ == '__main__':
-    images = load('_', 'local')
-    # print (images)
-    print(len(images), len(images[1]))
-    print(images[1].shape)
-    images = grayScale(images)
-    print(images[1].shape)
-    print(len(images), len(images[1]))
-    print(images[1])
-    images = medianFilter(images)
-    print(images[1].shape)
-    print(images[1])
