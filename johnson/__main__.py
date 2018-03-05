@@ -43,3 +43,15 @@ def main():
     op.add_argument('--_padding', help='pading on the images in the process of nmf')
     op.add_argument('--_merge', help='the number of regions to merge in nmf')
     op.set_defaults(func=johnson.nmf.main)
+
+
+    args = parser.parse_args()
+    if hasattr(args, 'func'):
+        args = vars(args)
+        func = args.pop('func')
+        func(**args)
+    else:
+        parser.print_help()
+        
+if __name__ == '__main__':
+    main()
