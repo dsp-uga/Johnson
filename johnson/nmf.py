@@ -22,8 +22,7 @@ def main(setName=['00.00', '00.01','01.00','01.01','02.00','02.01','03.00','04.0
         model = algorithm.fit(images, chunk_size=(_chunk_size,_chunk_size), padding=(_padding,_padding))
         print ('Merge regions for {}.test....'.format(data))
         merged = model.merge(_merge)
-        regions = merged.regions
-        regions = [{'coordinates': region.coordinates.tolist()} for region in mergedBlur.regions]
+        regions = [{'coordinates': region.coordinates.tolist()} for region in merged.regions]
         result = {'dataset': '{}.test'.format(data), 'regions': regions}
         submission.append(result)
 
