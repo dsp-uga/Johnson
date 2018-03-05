@@ -66,5 +66,3 @@ def _median(img):
     # Morphology has options on different shapes and values. In practice, square(3) or square(4) perform well.
     bin_median = filters.median(i, morphology.square(3))
     return bin_median
-
-if __name__ == '__main__':
