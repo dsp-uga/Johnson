@@ -31,7 +31,7 @@ def load(setName, base):
         dirname = '/media/data2TB/jeremyshi/neurofinder.{}.test/images/'.format(setName)
     # load images using opencv
     images = [cv2.imread(file) for file in glob('{}*.tiff'.format(dirname))]
-    print (len(images))
+    print ('The number of images is {}'.format(len(images)))
     return images
 
 def grayScale(images):
