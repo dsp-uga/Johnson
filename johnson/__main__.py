@@ -1,3 +1,10 @@
+'''
+Main file for Johnson. The structure is largely inspired from
+https://github.com/dsp-uga/elizabeth/blob/master/elizabeth/__main__.py
+Credits to @cbarrick and @zachdj
+'''
+
+
 import argparse
 import johnson
 import tensorflow as tf
@@ -24,16 +31,15 @@ def main():
     op = options.add_parser('info', description='print system info')
     op.set_defaults(func = info)
 
-    # johnson nmf 
-
-    images = load('_', 'local')
-    # print (images)
-    print(len(images), len(images[1]))
-    print(images[1].shape)
-    images = grayScale(images)
-    print(images[1].shape)
-    print(len(images), len(images[1]))
-    print(images[1])
-    images = medianFilter(images)
-    print(images[1].shape)
-    print(images[1])
+    # johnson nmf
+    op = options.add_parser('nmf', description='nonnegative matrix factorization', argument_default=argparse.SUPPRESS)
+    op.add_argument('--setName', help='the folder names of testing images')
+    op.add_argument('--base', help='where the files live; default value is the Caesar server')
+    op.add_argument('--_k', help='k value in nmf')
+    op.add_argument('--_percentile', help='percentile value in nmf')
+    op.add_argument('--_max_iter', help='max iterations in nmf')
+    op.add_argument('--_overlap', help='overlap regions in nmf')
+    op.add_argument('--_chunk_size', help='chunk_size in the process of nmf')
+    op.add_argument('--_padding', help='pading on the images in the process of nmf')
+    op.add_argument('--_merge', help='the number of regions to merge in nmf')
+    op.set_defaults(func=johnson.nmf.main)
