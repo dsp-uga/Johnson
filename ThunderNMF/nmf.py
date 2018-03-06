@@ -1,6 +1,6 @@
 import thunder as td
 from extraction import NMF
-import johnson
+import ThunderNMF
 
 def main(setName=['00.00', '00.01','01.00','01.01','02.00','02.01','03.00','04.00','04.01'],
             base='caesar', _k=5, _percentile=99, _max_iter=50, _overlap=0.1, _chunk_size=32,
@@ -12,11 +12,11 @@ def main(setName=['00.00', '00.01','01.00','01.01','02.00','02.01','03.00','04.0
     '''
     submission = []
     for data in setName:
-        images = johnson.load(setName, base)
-        images = johnson.grayScale(images)
+        images = ThunderNMF.load(setName, base)
+        images = ThunderNMF.grayScale(images)
         print ('The shape of each training image after preprocessing is {}'.format(images[1].shape))
         print ('Applying median filter for {}.test'.format(data))
-        images = johnson.medianFilter(images)
+        images = ThunderNMF.medianFilter(images)
         print ('Applying NMF for {}.test.....'.format(data))
         algorithm = NMF(k=_k, percentile=_percentile, max_iter=_max_iter, overlap=_overlap)
         model = algorithm.fit(images, chunk_size=(_chunk_size,_chunk_size), padding=(_padding,_padding))
