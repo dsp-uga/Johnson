@@ -15,14 +15,11 @@ $ git clone https://github.com/flatironinstitute/CaImAn
 - Replace `opencv3` (only processes in python 3.5) by `pip/opencv-python` (processes in python 3.6)
 - Specify the requirements of `keras 2.0.9` and `tensorflow 1.0.0`. (Install by conda might be covered by the root environment.)
 
-3. Duplicate the whole `use_cases` folder and everything under the folder to the path where you save your `cnmf_test.py` and `cnmf_process.py` script. Place your testing sets in the same path. You will have these directorys in your path:
+3. Duplicate the whole `use_cases` folder and everything under the folder to the path where you save your `cnmf_test.py` and `cnmf_process.py` script. Place your testing sets in the same path. You will have these directories and files in your path:
 
-- `cnmf_test.py`
-- `cnmf_process.py`
-- `CaImAn/`
-- `use_cases/`
-- `neurofinder.00.00.test/`
-- `neurofinder.00.01.test/` (testing sets)
+<p align="center">
+<img src="https://github.com/dsp-uga/Johnson/blob/cnmf/CNMF/folder_preview.png" height="250"/>
+</p>
 
 4. Process the following steps to finish package `caiman` installation working in your machine.
 
