@@ -16,7 +16,7 @@ import os
 
 def CNMF_PROCESS(tif_movie):
 
-    figures_name = tif_movie.replace('.tif','_')
+    dataset_name = tif_movie.replace('.tif','')
 
     # start a cluster
     c, dview, n_processes =\
@@ -47,8 +47,8 @@ def CNMF_PROCESS(tif_movie):
     Cn = cm.movie(images).local_correlations(swap_dim=False)
     plt.imshow(Cn, cmap='gray')
     plt.title('Correlation Image')
-    plt.show()
-    plt.savefig(figures_name + 'correlation.png')
+    # plt.show()
+    plt.savefig('figures/correlation_'+dataset_name+'.png')
 
     ### set up some parameters
     is_patches = False      # flag for processing in patches or not
@@ -77,10 +77,10 @@ def CNMF_PROCESS(tif_movie):
     plt.figure()
     crd = cm.utils.visualization.plot_contours(cnm.A, Cn, thr=0.9)
     plt.title('Contour plots of components')
-    plt.show()
-    plt.savefig(figures_name + 'contour.png')
+    # plt.show()
+    plt.savefig('figures/contour_'+dataset_name+'.png')
 
-    #%% COMPONENT EVALUATION
+    ### COMPONENT EVALUATION
     # the components are evaluated in three ways:
     #   a) the shape of each component must be correlated with the data
     #   b) a minimum peak SNR is required over the length of a transient
@@ -106,14 +106,14 @@ def CNMF_PROCESS(tif_movie):
     plt.subplot(1, 2, 1)
     cm.utils.visualization.plot_contours(cnm.A[:, idx_components], Cn, thr=0.9)
     plt.title('Selected components')
+    plt.savefig('figures/selected_'+dataset_name+'.png')
     plt.subplot(1, 2, 2)
     plt.title('Discaded components')
     cm.utils.visualization.plot_contours(cnm.A[:, idx_components_bad], Cn, thr=0.9)
-    plt.show(block=True)
-    plt.savefig(figures_name + 'contours.png')
+    plt.savefig('figures/discaded_'+dataset_name+'.png')    
+    # plt.show(block=True)
 
     ### visualize selected components
-    plt.figure()
     cm.utils.visualization.view_patches_bar(Yr, cnm.A.tocsc()[:, idx_components],
                                             cnm.C[idx_components, :], cnm.b, cnm.f,
                                             dims[0], dims[1],
@@ -125,5 +125,6 @@ def CNMF_PROCESS(tif_movie):
     log_files = glob.glob('Yr*_LOG_*')
     for log_file in log_files:
         os.remove(log_file)
-
+        
+    dview.terminate()
     return cnm.A.tocsc()[:, idx_components]
