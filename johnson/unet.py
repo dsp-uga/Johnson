@@ -8,7 +8,7 @@ from numpy import array, zeros, savetxt
 from scipy.misc import imread,imsave
 import scipy
 from glob import glob
-# from tf_unet import image_gen, image_util, unet, image_util
+from tf_unet import image_gen, image_util, unet, image_util
 
 def main(trainPath='traindata', testPath='/media/data4TbExt4/neuron/neurofinder.00.00.test/',
         layerNum=4, features=64, bsize=4, opm='adam',
