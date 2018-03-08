@@ -8,6 +8,7 @@ This project uses the time series image datasets of neurons from [CodeNeuro](htt
 2. Convolutional Neural Network by [Unet](https://github.com/jakeret/tf_unet)
 3. Constrained Non-negative Matrix Factorization by [CaImAn](https://github.com/flatironinstitute/CaImAn)
 
+Read more details about each algorithm and their applications in our [WIKI](https://github.com/dsp-uga/Johnson/wiki) tab.
 
 ## Getting Started
 
@@ -20,14 +21,29 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Environment Setting
 
-1. Create conda environment by based on `environment.yml` offered in this repository.
+1. Clone this repository.
+```
+$ git clone https://github.com/dsp-uga/Johnson.git
+$ cd Johnson
+```
+
+2. Create conda environment based on `environments.yml` offered in this repository.
 ```
 $ conda env create -f environments.yml -n neuron python=3.6
 $ source activate neuron
 ```
 
-2. (**for CNMF**)
-Clone the sources package by [CaImAn](https://github.com/flatironinstitute/CaImAn), go into CaImAn repository, and set up `caiman` in the conda environment, then delete CaImAn repository.
+3. (**for Unet**)
+Clone the source repository by [tf_unet](https://github.com/jakeret/tf_unet), go into tf_unet repository, and set up `tf_unet` in the conda environment, then delete tf_unet repository.
+```
+$ git clone https://github.com/jakeret/tf_unet
+$ cd tf_unet
+$ python setup.py install
+$ rm -rf tf_unet
+```
+
+4. (**for CNMF**)
+Clone the sources repository by [CaImAn](https://github.com/flatironinstitute/CaImAn), go into CaImAn repository, and set up `caiman` in the conda environment, then delete CaImAn repository.
 ```
 $ git clone https://github.com/flatironinstitute/CaImAn
 $ cd CaImAn
