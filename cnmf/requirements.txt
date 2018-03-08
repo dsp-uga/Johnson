@@ -1,6 +1,0 @@
-numpy
-scipy
-cvxpy
-cvxopt
-scikit-image
-scikit-learn

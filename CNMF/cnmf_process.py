@@ -14,7 +14,12 @@ from caiman.components_evaluation import estimate_components_quality_auto
 from caiman.source_extraction.cnmf import cnmf as cnmf
 import os
 
-def CNMF_PROCESS(tif_movie):
+def CNMF_PROCESS(tif_movie, _k, _g, _merge):
+    """
+    Inputs .tif movie (transforming from time series images)
+    Applys constrained nonnegative matrix factorization
+    Outputs selected neurons sparse matrix and dimension of movie
+    """
 
     dataset_name = tif_movie.replace('.tif','')
 
@@ -60,10 +65,10 @@ def CNMF_PROCESS(tif_movie):
     else:                   # PROCESS THE WHOLE FOV AT ONCE
         rf = None           # setting these parameters to None
         stride = None       # will run CNMF on the whole FOV
-        K = 300             # number of neurons expected (in the whole FOV)
+        K = _k              # number of neurons expected (in the whole FOV)
 
-    gSig = [3, 3]           # expected half size of neurons
-    merge_thresh = 0.80     # merging threshold, max correlation allowed
+    gSig = [_g, _g]         # expected half size of neurons
+    merge_thresh = _merge   # merging threshold, max correlation allowed
     p = 2                   # order of the autoregressive system
     gnb = 2                 # global background order
 
@@ -110,7 +115,7 @@ def CNMF_PROCESS(tif_movie):
     plt.subplot(1, 2, 2)
     plt.title('Discaded components')
     cm.utils.visualization.plot_contours(cnm.A[:, idx_components_bad], Cn, thr=0.9)
-    plt.savefig('figures/discaded_'+dataset_name+'.png')    
+    plt.savefig('figures/discaded_'+dataset_name+'.png')
     # plt.show(block=True)
 
     ### visualize selected components
@@ -125,6 +130,14 @@ def CNMF_PROCESS(tif_movie):
     log_files = glob.glob('Yr*_LOG_*')
     for log_file in log_files:
         os.remove(log_file)
-        
+
     dview.terminate()
     return cnm.A.tocsc()[:, idx_components]
+
+def tocoord(pixels_array, dims):
+    """
+    Transforms pixels array into original shape of image,
+    Returns the coordinates of existed neurons.
+    """
+    coordinates = np.argwhere(pixels_array.reshape(dims)!=0)
+    return coordinates.tolist()
