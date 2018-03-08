@@ -81,6 +81,13 @@ Based on the neurons coordinates, five related scores to determine the results w
 
 ## Test Results
 
+| Module   | arguments            | Total Score | Avg Precision | Avg Recall | Avg Inclusion | Avg Exclusion |
+|----------|----------------------|-------------|---------------|------------|---------------|---------------|
+|ThunderNMF|
+|Unet      |
+|CNMF      |k=1000, g=5, merge=0.8| 2.60321	    | 0.85974	      | 0.64497    | 0.78954	     | 0.30896       |
+|CNMF      |k=700, g=5, merge=0.7 | 2.56363	    | 0.90098       |	0.5652     | 0.79898	     | 0.29847       |
+
 
 
 ## Authors
