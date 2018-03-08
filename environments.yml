@@ -1,0 +1,29 @@
+channels:
+- defaults
+- menpo
+dependencies:
+- future
+- numpy
+- scipy
+- ipython
+- ipyparallel
+- jupyter
+- matplotlib
+- scikit-image
+- scikit-learn
+- h5py
+- cython
+- spyder
+- nose
+- bokeh
+- tqdm
+- pip:
+  - click
+  - Pillow
+  - tifffile==0.12.1
+  - peakutils
+  - opencv-python
+  - tensorflow==1.0.0
+  - keras==2.0.9
+  - thunder
+  - thunder-extraction 
