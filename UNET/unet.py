@@ -1,6 +1,5 @@
 '''
 This file includes the Unet code: Using the package Tensorflow Unet.
-
 This is a framework used to build Unet architectures. 
 The package provides the following modules that we have used:
 unet Module: Creates a Unet architecture by specifying the number of layers, the optimizer function, the dropout (optional), the
@@ -8,9 +7,6 @@ number of classes, and the number of features
 train Module: Train your unet module, by specfying the number of epochs, number of iterations.
 predict Module: Predict on a given query image, using the trained module.
 '''
-
-
-
 
 import sys
 import cv2
