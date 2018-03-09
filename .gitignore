@@ -1,5 +1,13 @@
 # data
 neurofinder.01.01/
+
+# post-processing
+
+dump.py
+submission0307test.json
+submission0307testtest.json
+submission0308test.json
+
 # Local scripting
 scripts/submit-local.sh
 
