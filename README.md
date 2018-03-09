@@ -27,9 +27,14 @@ $ git clone https://github.com/dsp-uga/Johnson.git
 $ cd Johnson
 ```
 
-2. Create conda environment based on `environments.yml` offered in this repository.
+2. Create conda environment based on `environments.yml` offered in this repository. 
 ```
 $ conda env create -f environments.yml -n neuron python=3.6
+$ source activate neuron
+```
+Note that `tf_unet` works best in python 2.7, which is also the environment we used for it. (All other experiments are done in Python 3.6). So if you want to use `tf_unet`, create a conda environment as follows:
+```
+$ conda env create -f environments.yml -n neuron python=2.7
 $ source activate neuron
 ```
 
