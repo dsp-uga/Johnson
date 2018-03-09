@@ -1,3 +1,17 @@
+'''
+This file includes the Unet code: Using the package Tensorflow Unet.
+
+This is a framework used to build Unet architectures. 
+The package provides the following modules that we have used:
+unet Module: Creates a Unet architecture by specifying the number of layers, the optimizer function, the dropout (optional), the
+number of classes, and the number of features 
+train Module: Train your unet module, by specfying the number of epochs, number of iterations.
+predict Module: Predict on a given query image, using the trained module.
+'''
+
+
+
+
 import sys
 import cv2
 from PIL import Image
@@ -14,7 +28,18 @@ def main(trainPath='traindata', testPath='/media/data4TbExt4/neuron/neurofinder.
         layerNum=4, features=64, bsize=4, opm='adam',
         iter=120, ep=220, display=60):
     '''
-    Need more docs on params here.
+    Driver function. Provides the required inputs for all the modules of the tf_unet package.
+    Input:
+    trainPath: The path to the training data. This is the path to the directory. All .tif training images must be stored in this directory.
+    testPath: The path to the test data. All _mask.tif files must be stored in this directory.
+    layerNum: Number of layers in the Unet architecture.
+    features: Length of the feature map in the Unet architecture.
+    bsize: The batch size for the input.
+    opm: The type of optimizer used.
+    iter: The number of iterations during training. 
+    ep: Number of epochs to be used for training. 
+    display: This is used during display. Number of epochs after which the accuracy should be displayed.
+    
     '''
     if sys.version_info[0] >= 3:
         raise ("Must be using Python 2.7!")
