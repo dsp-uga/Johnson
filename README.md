@@ -94,9 +94,20 @@ Based on the neurons coordinates, five related scores to determine the results w
 |CNMF      |k=1000, g=5, merge=0.8 | 2.60321	    | 0.860      | 0.645    | 0.790	     | 0.309      |
 
 ## Tensorboard Records for Unet training 
+<p align="center">
+<img src = "UNET/figure_legend.png" width=500>
+</p>
+
 #### Accuracy
-![accuracy](UNET/accuracy_graph.png)
+<p align="center">
+<img src = "UNET/figure_accuracy.png" width=1000>
+</p>
+
 #### Loss
+<p align="center">
+<img src = "UNET/figure_loss.png" width=1000>
+</p>
+
 ![loss](UNET/loss_graph.png)
 
 ## TODO
