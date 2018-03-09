@@ -108,8 +108,6 @@ Based on the neurons coordinates, five related scores to determine the results w
 <img src = "UNET/figure_loss.png" width=1000>
 </p>
 
-![loss](UNET/loss_graph.png)
-
 ## TODO
 Training tf_unet with padded images, because tf_unet with shrink the image size. Our results from tf_unet is not as good as we expected. We used scaling, but that may not work so well here. See Issues [#13](https://github.com/dsp-uga/Johnson/issues/13) and [#18](https://github.com/dsp-uga/Johnson/issues/18).
 
