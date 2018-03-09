@@ -96,6 +96,9 @@ Based on the neurons coordinates, five related scores to determine the results w
 |CNMF      |k=1000, g=7, merge=0.85| 2.529	    | 0.868      | 0.599	   | 0.789     | 0.273     |
 
 
+## TODO
+Training tf_unet with padded images, because tf_unet with shrink the image size. Our results from tf_unet is not as good as we expected. We used scaling, but that may not work so well here. See Issues #13 and #18.
+
 ## Authors
 (Ordered alphabetically)
 
