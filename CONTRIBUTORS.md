@@ -1,5 +1,6 @@
 Ankita Joshi:
 - Unet Implementation
+- Naive implementation of spectral clustering (not added to master)
 - Documentation
 
 Jeremy Shi:
