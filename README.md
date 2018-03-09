@@ -83,11 +83,12 @@ Based on the neurons coordinates, five related scores to determine the results w
 
 | Module   | arguments             | Total Score | Avg Precision | Avg Recall | Avg Inclusion | Avg Exclusion |
 |----------|-----------------------|-------------|---------------|------------|---------------|---------------|
-|ThunderNMF|
-|Unet      |
-|CNMF      |k=1000, g=5, merge=0.8 | 2.60321	    | 0.85974	      | 0.64497    | 0.78954	     | 0.30896      |
-|CNMF      |k=700, g=5, merge=0.7  | 2.56363	    | 0.90098       |	0.5652     | 0.79898	     | 0.29847      |
-|CNMF      |k=1000, g=7, merge=0.85| 2.52909	    | 0.86774	      | 0.59858	   | 0.78933	     | 0.27344      |
+|ThunderNMF|percentile=99, max_iter=50, overlap=0.1, chunk=32 | 2.94815 | 0.78606 | 0.84156 | 0.56725 | 0.75328 |
+|ThunderNMF|percentile=99, max_iter=50, overlap=0.1, chunk=128, padding=15 |  2.852 | 0.663 | 0.93048 | 0.67249 | 0.58641  |
+|Unet (only running on 00 sets) | train_iter=120, epoch=500, layer=4, features=64 | 2.93394 | 1.0 | 0.9446 | 0.41857 | 0.57077 |
+|CNMF      |k=1000, g=5, merge=0.8 | 2.60321	    | 0.860      | 0.645    | 0.790	     | 0.309      |
+|CNMF      |k=700, g=5, merge=0.7  | 2.56363	    | 0.901       |	0.565     | 0.799	     | 0.298     |
+|CNMF      |k=1000, g=7, merge=0.85| 2.529	    | 0.868      | 0.599	   | 0.789     | 0.273     |
 
 
 ## Authors
