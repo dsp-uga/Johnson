@@ -111,6 +111,8 @@ Based on the neurons coordinates, five related scores to determine the results w
 ## TODO
 Training tf_unet with padded images, because tf_unet with shrink the image size. Our results from tf_unet is not as good as we expected. We used scaling, but that may not work so well here. See Issues [#13](https://github.com/dsp-uga/Johnson/issues/13) and [#18](https://github.com/dsp-uga/Johnson/issues/18).
 
+We also tried implementing the image segmentation problem using the spectral clustering method. Due to lack of time, we were not able to test our results for this method. We used the scikit-learn package of spectral clustering in order to implement this.
+
 ## Authors
 (Ordered alphabetically)
 
