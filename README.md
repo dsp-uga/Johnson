@@ -92,17 +92,24 @@ Based on the neurons coordinates, five related scores to determine the results w
 |ThunderNMF|percentile=99, max_iter=50, overlap=0.1, chunk=128, padding=15 |  2.852 | 0.663 | 0.93048 | 0.67249 | 0.58641  |
 |Unet (only running on 00 sets) | train_iter=120, epoch=500, layer=4, features=64 | 2.93394 | 1.0 | 0.9446 | 0.41857 | 0.57077 |
 |CNMF      |k=1000, g=5, merge=0.8 | 2.60321	    | 0.860      | 0.645    | 0.790	     | 0.309      |
-|CNMF      |k=700, g=5, merge=0.7  | 2.56363	    | 0.901       |	0.565     | 0.799	     | 0.298     |
-|CNMF      |k=1000, g=7, merge=0.85| 2.529	    | 0.868      | 0.599	   | 0.789     | 0.273     |
 
 ## Tensorboard Records for Unet training 
+<p align="center">
+<img src = "UNET/figure_legend.png" width=500>
+</p>
+
 #### Accuracy
-![accuracy](UNET/accuracy_graph.png)
+<p align="center">
+<img src = "UNET/figure_accuracy.png" width=1000>
+</p>
+
 #### Loss
-![loss](UNET/loss_graph.png)
+<p align="center">
+<img src = "UNET/figure_loss.png" width=1000>
+</p>
 
 ## TODO
-Training tf_unet with padded images, because tf_unet with shrink the image size. Our results from tf_unet is not as good as we expected. We used scaling, but that may not work so well here. See Issues #13 and #18.
+Training tf_unet with padded images, because tf_unet with shrink the image size. Our results from tf_unet is not as good as we expected. We used scaling, but that may not work so well here. See Issues [#13](https://github.com/dsp-uga/Johnson/issues/13) and [#18](https://github.com/dsp-uga/Johnson/issues/18).
 
 ## Authors
 (Ordered alphabetically)
@@ -111,7 +118,7 @@ Training tf_unet with padded images, because tf_unet with shrink the image size.
 - **I-Huei Ho** - [melanieihuei](https://github.com/melanieihuei)
 - **Jeremy Shi** - [whusym](https://github.com/whusym)
 
-See the [CONTRIBUTORS](CONTRIBUTORS.md) file for details.
+See the [CONTRIBUTORS](https://github.com/dsp-uga/Johnson/blob/master/CONTRIBUTORS.md) file for details.
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/dsp-uga/Johnson/blob/master/LICENSE) file for details
